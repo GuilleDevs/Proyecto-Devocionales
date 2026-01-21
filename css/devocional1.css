@@ -208,26 +208,109 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+        padding: 0;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
     nav ul {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: var(--white);
         padding: 1rem;
         box-shadow: var(--shadow);
-        gap: 1rem;
+        gap: 0;
         text-align: center;
+        z-index: 999;
     }
 
     nav ul.active {
         display: flex;
     }
 
-    .mobile-menu-btn {
+    nav ul li {
+        width: 100%;
+    }
+
+    /* Estilos para dropdown en móvil */
+    .dropdown {
+        position: relative;
+        width: 100%;
+    }
+
+    .dropdown > a {
         display: block;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .submenu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        transform: none;
+        background-color: var(--secondary-color);
+        box-shadow: none;
+        min-width: auto;
+        margin: 0;
+        padding: 0;
+        z-index: 998;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown.active > .submenu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 500px;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .submenu li {
+        padding: 0;
+        width: 100%;
+    }
+
+    .submenu a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        text-decoration: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .submenu a:hover {
+        background-color: #fbcfe8;
     }
     
     .hero h1 {

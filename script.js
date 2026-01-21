@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
 
-            // Optional: Toggle icon between hamburger and close (if we used an icon library)
+            // Toggle icon between hamburger and close
             const icon = mobileBtn.querySelector('span');
             if (icon) {
                 if (navMenu.classList.contains('active')) {
@@ -24,12 +24,46 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = dropdown.querySelector('a');
         if (link) {
             link.addEventListener('click', (e) => {
-                // En desktop, permitir navegar; en móvil, mostrar submenu
+                // En móvil, mostrar/ocultar submenu
                 if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    const submenu = dropdown.querySelector('.submenu');
+                    if (submenu) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
                 }
             });
+        }
+
+        // Cerrar dropdown al hacer clic en un enlace del submenu
+        const submenuLinks = dropdown.querySelectorAll('.submenu a');
+        submenuLinks.forEach(submenuLink => {
+            submenuLink.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    dropdown.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    const icon = mobileBtn.querySelector('span');
+                    if (icon) {
+                        icon.textContent = '☰';
+                    }
+                }
+            });
+        });
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            if (!e.target.closest('header')) {
+                navMenu.classList.remove('active');
+                const icon = mobileBtn.querySelector('span');
+                if (icon) {
+                    icon.textContent = '☰';
+                }
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
         }
     });
 
@@ -42,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (hour < 18) greeting = 'Buenas tardes, bendiciones';
         else greeting = 'Buenas noches, bendiciones';
 
-        // Append greeting if not already present or just as a console log to not override static content unexpectedly
         console.log(`${greeting}! Lista para leer un devocional hoy?`);
     }
 });
