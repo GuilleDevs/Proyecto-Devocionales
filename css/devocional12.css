@@ -291,7 +291,7 @@ footer {
     .dropdown.active > .submenu {
         opacity: 1;
         visibility: visible;
-        max-height: none;
+        max-height: 500px;
         padding: 0;
         overflow: visible;
     }
