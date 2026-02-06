@@ -103,7 +103,8 @@ nav a:hover {
 
 .submenu a {
     display: block;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 0.5rem;
+    line-height: 1;
     color: var(--text-color);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -112,7 +113,7 @@ nav a:hover {
 .submenu a:hover {
     background-color: var(--secondary-color);
     color: var(--heading-color);
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 
 .mobile-menu-btn {
