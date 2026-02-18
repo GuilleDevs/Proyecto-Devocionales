@@ -31,7 +31,7 @@ h1, h2, h3, h4 {
 
 header {
     background-color: var(--white);
-    padding: 1.5rem 2rem;
+    padding: 0.5rem 2rem;
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
@@ -40,13 +40,9 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-style: italic;
+.logo img {
+    height: 60px;   /* ajusta según lo que necesites */
+    width: auto;    /* mantiene la proporción */
 }
 
 nav ul {
@@ -240,7 +236,7 @@ footer {
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 60px;
+        top: 80px;
         left: 0;
         width: 100%;
         background-color: var(--white);
