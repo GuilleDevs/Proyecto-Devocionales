@@ -198,6 +198,94 @@ main {
     font-size: 1.2rem;
 }
 
+.devotional-cards {
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.devotional-cards h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 👈 cards más chicas */
+    gap: 1rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;   /* 👈 cuadrado perfecto */
+    object-fit: contain;   /* 👈 adapta la imagen sin recortes ni distorsión */
+    background-color: #f9f9f9; /* 👈 color de fondo para rellenar bordes vacíos */
+}
+
+.card-content {
+    padding: 0.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    margin: 0 0 0.4rem;
+}
+
+.card-content p {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
+.card-content .btn {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+}
+
+.card-content .btn:hover {
+    background: var(--secondary-color);
+}
+.home-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;         /* tamaño del icono */
+    color: var(--primary-color);
+    background: var(--white);
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;        /* círculo */
+    width: 40px;
+    height: 40px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.home-icon:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
 footer {
     text-align: center;
     padding: 2rem;
@@ -315,4 +403,56 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.8rem;
+    }
+    .card-content h3 {
+        font-size: 0.9rem;
+    }
+    .card-content p {
+        font-size: 0.75rem;
+    }
+    .card-content .btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .home-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+}
+/* Móvil (≤425px) */
+@media (max-width: 425px) {
+    .card {
+        width: 95%;
+        height: 100%;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* más chicas */
+        gap: 0.6rem;
+    }
+    .card-content {
+        padding: 0.5rem;
+    }
+    .card-content h3 {
+        font-size: 0.85rem;
+    }
+    .card-content p {
+        font-size: 0.7rem;
+    }
+    .card-content .btn {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .home-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+
 }
