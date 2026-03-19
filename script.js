@@ -78,4 +78,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(`${greeting}! Lista para leer un devocional hoy?`);
     }
+
+    // 🔧 --- Paginación de las cards ---
+    const cardsPerPage = 4;
+    const cards = document.querySelectorAll("#cards-container .card");
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+    const pagination = document.getElementById("pagination");
+
+    function showPage(page) {
+        cards.forEach((card, index) => {
+            card.style.display =
+                index >= (page - 1) * cardsPerPage && index < page * cardsPerPage
+                    ? "block"
+                    : "none";
+        });
+
+        document.querySelectorAll(".page-number").forEach((btn, idx) => {
+            btn.classList.toggle("active", idx + 1 === page);
+        });
+    }
+
+    // Crear botones de paginación
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("span");
+        btn.textContent = i;
+        btn.classList.add("page-number");
+        btn.addEventListener("click", () => showPage(i));
+        pagination.appendChild(btn);
+    }
+
+    // Mostrar la primera página al cargar
+    showPage(1);
+
 });

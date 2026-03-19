@@ -286,6 +286,46 @@ main {
     background: var(--primary-color);
     color: #fff;
 }
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px;
+  }
+.card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+  }
+.card img {
+    width: 100%;
+    height: auto;
+  }
+.card-content {
+    padding: 15px;
+  }
+#pagination {
+    margin-top: 30px;       /* espacio para que quede debajo de las cards */
+    text-align: center;     /* centra los números */
+    width: 100%;            /* ocupa todo el ancho disponible */
+    clear: both;            /* fuerza que se ubique debajo de las cards */
+
+  }
+.page-number {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px 12px;
+  background: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.page-number.active {
+  background: #a67c52;
+  color: #fff;
+}
+
+
 footer {
     text-align: center;
     padding: 2rem;
